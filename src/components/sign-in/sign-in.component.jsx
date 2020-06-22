@@ -3,10 +3,9 @@ import './sign-in.styles.scss';
 import FormInput from '../../components/form-input/form-input.component';
 import CustomButton from '../../components/custom-button/custom-button.component';
 
-import {singInWithGoogle} from '../../firebase/firebase.utils';
+import { auth, singInWithGoogle } from '../../firebase/firebase.utils';
 
-
-const SignIn = ({ emailSignInStart }) => {
+const SignIn = () => {
 
 const [userCredentials , setUserCredentials] = useState ({ email : '', password :''});
 
@@ -14,7 +13,14 @@ const {email , password } = userCredentials;
 
 const handleSubmit = async event => {
   event.preventDefault();
-  emailSignInStart(email, password);
+  const {email , password } = userCredentials;
+  
+  try {
+  await auth.signInWithEmailAndPassword(email,password);
+   setUserCredentials({ email : '', password :''})
+  } catch (error) {
+      console.error(error);
+  }
 };
 
 const handleChange = event => {
