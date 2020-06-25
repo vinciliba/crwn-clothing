@@ -4,11 +4,11 @@ import CollectionPreview  from '../components/preview-collection/collection-prev
 
 const ShopPage = () => {
 
-    const [collections,setCollections] = useState([])
+    const [collections, setCollections] = useState([])
 
     useEffect(() => {
         setCollections(SHOP_DATA)
-    },[])
+    },[setCollections])
             
 return (
  <div className='shop-page'>
