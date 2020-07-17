@@ -40,7 +40,7 @@ return (
     
     <div className='buttons'>
             <CustomButton type='submit' value='Submit form' > Sign In </CustomButton>
-        <CustomButton onClick={singInWithGoogle} isGoogleSignIn > Sign in with Google </CustomButton>
+            <CustomButton onClick={singInWithGoogle} isGoogleSignIn > Sign in with Google </CustomButton>
    </div>
 
 </form>
